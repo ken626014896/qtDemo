@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainForm.ui.qml</file>
+        <file>SideBar.qml</file>
+        <file>source/kenn.jpg</file>
+        <file>HomePage.qml</file>
+        <file>source/settings.ico</file>
+        <file>source/Chat_MsgRecord.svg</file>
+        <file>source/Chat_MsgRecordG.svg</file>
+        <file>source/Main_P2PChat.svg</file>
+        <file>source/Main_P2PChatG.svg</file>
+        <file>source/Mobile_Find.svg</file>
+        <file>source/Mobile_FindG.svg</file>
+        <file>MusicPage.qml</file>
+        <file>RecommendPage.qml</file>
+        <file>PlayMusicPage.qml</file>
+        <file>source/chevron_left.ico</file>
+        <file>source/arrow_left.ico</file>
+        <file>source/left.ico</file>
+        <file>source/looping.ico</file>
+        <file>source/player_list.ico</file>
+        <file>source/right.ico</file>
+        <file>source/video_player.ico</file>
+        <file>source/zhangting.ico</file>
+        <file>source/Some.mp3</file>
+    </qresource>
+</RCC>
