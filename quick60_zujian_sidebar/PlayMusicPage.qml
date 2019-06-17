@@ -8,7 +8,7 @@ Item {
     signal back()
     property alias rwidth: rectangle.width
     property alias rheight: rectangle.height
-    property bool isStart: false //开始与暂停标记
+    property bool isStart: false //开始与暂停
     property var timedata: new Date();
     function mscString(miao){
        timedata.setTime(miao)
