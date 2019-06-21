@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resource/btnSlim_up.png</file>
+        <file>resource/btnSlim_up_normal.png</file>
+        <file>resource/btnup.png</file>
+        <file>resource/btnup_normal.png</file>
+        <file>resource/btndown_normal .png</file>
+        <file>resource/btnleft.png</file>
+        <file>resource/btnleft_normal .png</file>
+        <file>resource/btnright.png</file>
+        <file>resource/btnright_normal .png</file>
+        <file>resource/btnSlim_down.png</file>
+        <file>resource/btnSlim_down_normal.png</file>
+        <file>resource/btnSlim_left.png</file>
+        <file>resource/btnSlim_left_normal.png</file>
+        <file>resource/btnSlim_right.png</file>
+        <file>resource/btnSlim_right_normal.png</file>
+        <file>resource/btndown.png</file>
+        <file>resource/updown.png</file>
+        <file>resource/updown_normal.png</file>
+        <file>resource/set-active.png</file>
+        <file>resource/set-btn.png</file>
+    </qresource>
+</RCC>
