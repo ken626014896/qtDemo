@@ -14,22 +14,12 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(0, 170, 255);</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="btnBack">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>490</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>返回</string>
-    </property>
-   </widget>
+   <property name="styleSheet">
+    <string notr="true">#centralwidget{background-color: rgb(0, 170, 255);}</string>
+   </property>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
@@ -86,7 +76,7 @@
      <rect>
       <x>20</x>
       <y>50</y>
-      <width>521</width>
+      <width>522</width>
       <height>431</height>
      </rect>
     </property>
@@ -864,51 +854,72 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLineEdit" name="lineEdit_85">
+      <widget class="QLineEdit" name="lineEditA1">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
        </property>
       </widget>
      </item>
      <item row="1" column="2">
-      <widget class="QLineEdit" name="lineEdit_86">
+      <widget class="QLineEdit" name="lineEditA2">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>4</string>
        </property>
       </widget>
      </item>
      <item row="1" column="3">
-      <widget class="QLineEdit" name="lineEdit_87">
+      <widget class="QLineEdit" name="lineEditA3">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>6</string>
        </property>
       </widget>
      </item>
      <item row="1" column="4">
-      <widget class="QLineEdit" name="lineEdit_88">
+      <widget class="QLineEdit" name="lineEditA4">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
        </property>
       </widget>
      </item>
      <item row="1" column="5">
-      <widget class="QLineEdit" name="lineEdit_95">
+      <widget class="QLineEdit" name="lineEditA5">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>6</string>
        </property>
       </widget>
      </item>
      <item row="1" column="6">
-      <widget class="QLineEdit" name="lineEdit_103">
+      <widget class="QLineEdit" name="lineEditA6">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>4</string>
        </property>
       </widget>
      </item>
      <item row="1" column="7">
-      <widget class="QLineEdit" name="lineEdit_111">
+      <widget class="QLineEdit" name="lineEditA7">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
        </property>
       </widget>
      </item>
@@ -920,51 +931,72 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QLineEdit" name="lineEdit_29">
+      <widget class="QLineEdit" name="lineEditA11">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
        </property>
       </widget>
      </item>
      <item row="2" column="2">
-      <widget class="QLineEdit" name="lineEdit_30">
+      <widget class="QLineEdit" name="lineEditA22">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>4</string>
        </property>
       </widget>
      </item>
      <item row="2" column="3">
-      <widget class="QLineEdit" name="lineEdit_31">
+      <widget class="QLineEdit" name="lineEditA33">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>6</string>
        </property>
       </widget>
      </item>
      <item row="2" column="4">
-      <widget class="QLineEdit" name="lineEdit_32">
+      <widget class="QLineEdit" name="lineEditA44">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
        </property>
       </widget>
      </item>
      <item row="2" column="5">
-      <widget class="QLineEdit" name="lineEdit_89">
+      <widget class="QLineEdit" name="lineEditA55">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>6</string>
        </property>
       </widget>
      </item>
      <item row="2" column="6">
-      <widget class="QLineEdit" name="lineEdit_97">
+      <widget class="QLineEdit" name="lineEditA66">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>4</string>
        </property>
       </widget>
      </item>
      <item row="2" column="7">
-      <widget class="QLineEdit" name="lineEdit_105">
+      <widget class="QLineEdit" name="lineEditA77">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
        </property>
       </widget>
      </item>
@@ -976,51 +1008,72 @@
       </widget>
      </item>
      <item row="3" column="1">
-      <widget class="QLineEdit" name="lineEdit_33">
+      <widget class="QLineEdit" name="lineEditB1">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
        </property>
       </widget>
      </item>
      <item row="3" column="2">
-      <widget class="QLineEdit" name="lineEdit_34">
+      <widget class="QLineEdit" name="lineEditB2">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>4</string>
        </property>
       </widget>
      </item>
      <item row="3" column="3">
-      <widget class="QLineEdit" name="lineEdit_35">
+      <widget class="QLineEdit" name="lineEditB3">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>6</string>
        </property>
       </widget>
      </item>
      <item row="3" column="4">
-      <widget class="QLineEdit" name="lineEdit_36">
+      <widget class="QLineEdit" name="lineEditB4">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
        </property>
       </widget>
      </item>
      <item row="3" column="5">
-      <widget class="QLineEdit" name="lineEdit_94">
+      <widget class="QLineEdit" name="lineEditB5">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>6</string>
        </property>
       </widget>
      </item>
      <item row="3" column="6">
-      <widget class="QLineEdit" name="lineEdit_102">
+      <widget class="QLineEdit" name="lineEditB6">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>4</string>
        </property>
       </widget>
      </item>
      <item row="3" column="7">
-      <widget class="QLineEdit" name="lineEdit_110">
+      <widget class="QLineEdit" name="lineEditB7">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
        </property>
       </widget>
      </item>
@@ -1032,51 +1085,72 @@
       </widget>
      </item>
      <item row="4" column="1">
-      <widget class="QLineEdit" name="lineEdit_37">
+      <widget class="QLineEdit" name="lineEditB11">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
        </property>
       </widget>
      </item>
      <item row="4" column="2">
-      <widget class="QLineEdit" name="lineEdit_38">
+      <widget class="QLineEdit" name="lineEditB22">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>4</string>
        </property>
       </widget>
      </item>
      <item row="4" column="3">
-      <widget class="QLineEdit" name="lineEdit_39">
+      <widget class="QLineEdit" name="lineEditB33">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>6</string>
        </property>
       </widget>
      </item>
      <item row="4" column="4">
-      <widget class="QLineEdit" name="lineEdit_40">
+      <widget class="QLineEdit" name="lineEditB44">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
        </property>
       </widget>
      </item>
      <item row="4" column="5">
-      <widget class="QLineEdit" name="lineEdit_93">
+      <widget class="QLineEdit" name="lineEditB55">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>6</string>
        </property>
       </widget>
      </item>
      <item row="4" column="6">
-      <widget class="QLineEdit" name="lineEdit_101">
+      <widget class="QLineEdit" name="lineEditB66">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>4</string>
        </property>
       </widget>
      </item>
      <item row="4" column="7">
-      <widget class="QLineEdit" name="lineEdit_109">
+      <widget class="QLineEdit" name="lineEditB77">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
        </property>
       </widget>
      </item>
@@ -1088,51 +1162,72 @@
       </widget>
      </item>
      <item row="5" column="1">
-      <widget class="QLineEdit" name="lineEdit_41">
+      <widget class="QLineEdit" name="lineEditC1">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
        </property>
       </widget>
      </item>
      <item row="5" column="2">
-      <widget class="QLineEdit" name="lineEdit_42">
+      <widget class="QLineEdit" name="lineEditC2">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>4</string>
        </property>
       </widget>
      </item>
      <item row="5" column="3">
-      <widget class="QLineEdit" name="lineEdit_43">
+      <widget class="QLineEdit" name="lineEditC3">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>6</string>
        </property>
       </widget>
      </item>
      <item row="5" column="4">
-      <widget class="QLineEdit" name="lineEdit_44">
+      <widget class="QLineEdit" name="lineEditC4">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
        </property>
       </widget>
      </item>
      <item row="5" column="5">
-      <widget class="QLineEdit" name="lineEdit_96">
+      <widget class="QLineEdit" name="lineEditC5">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>6</string>
        </property>
       </widget>
      </item>
      <item row="5" column="6">
-      <widget class="QLineEdit" name="lineEdit_104">
+      <widget class="QLineEdit" name="lineEditC6">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>4</string>
        </property>
       </widget>
      </item>
      <item row="5" column="7">
-      <widget class="QLineEdit" name="lineEdit_112">
+      <widget class="QLineEdit" name="lineEditC7">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
        </property>
       </widget>
      </item>
@@ -1144,51 +1239,72 @@
       </widget>
      </item>
      <item row="6" column="1">
-      <widget class="QLineEdit" name="lineEdit_45">
+      <widget class="QLineEdit" name="lineEditC11">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
        </property>
       </widget>
      </item>
      <item row="6" column="2">
-      <widget class="QLineEdit" name="lineEdit_46">
+      <widget class="QLineEdit" name="lineEditC22">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>4</string>
        </property>
       </widget>
      </item>
      <item row="6" column="3">
-      <widget class="QLineEdit" name="lineEdit_47">
+      <widget class="QLineEdit" name="lineEditC33">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>6</string>
        </property>
       </widget>
      </item>
      <item row="6" column="4">
-      <widget class="QLineEdit" name="lineEdit_48">
+      <widget class="QLineEdit" name="lineEditC44">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
        </property>
       </widget>
      </item>
      <item row="6" column="5">
-      <widget class="QLineEdit" name="lineEdit_90">
+      <widget class="QLineEdit" name="lineEditC55">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>6</string>
        </property>
       </widget>
      </item>
      <item row="6" column="6">
-      <widget class="QLineEdit" name="lineEdit_98">
+      <widget class="QLineEdit" name="lineEditC66">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>4</string>
        </property>
       </widget>
      </item>
      <item row="6" column="7">
-      <widget class="QLineEdit" name="lineEdit_106">
+      <widget class="QLineEdit" name="lineEditC77">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
        </property>
       </widget>
      </item>
@@ -1200,51 +1316,72 @@
       </widget>
      </item>
      <item row="7" column="1">
-      <widget class="QLineEdit" name="lineEdit_49">
+      <widget class="QLineEdit" name="lineEditD1">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
        </property>
       </widget>
      </item>
      <item row="7" column="2">
-      <widget class="QLineEdit" name="lineEdit_50">
+      <widget class="QLineEdit" name="lineEditD2">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>4</string>
        </property>
       </widget>
      </item>
      <item row="7" column="3">
-      <widget class="QLineEdit" name="lineEdit_51">
+      <widget class="QLineEdit" name="lineEditD3">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>6</string>
        </property>
       </widget>
      </item>
      <item row="7" column="4">
-      <widget class="QLineEdit" name="lineEdit_52">
+      <widget class="QLineEdit" name="lineEditD4">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
        </property>
       </widget>
      </item>
      <item row="7" column="5">
-      <widget class="QLineEdit" name="lineEdit_91">
+      <widget class="QLineEdit" name="lineEditD5">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>6</string>
        </property>
       </widget>
      </item>
      <item row="7" column="6">
-      <widget class="QLineEdit" name="lineEdit_99">
+      <widget class="QLineEdit" name="lineEditD6">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>4</string>
        </property>
       </widget>
      </item>
      <item row="7" column="7">
-      <widget class="QLineEdit" name="lineEdit_107">
+      <widget class="QLineEdit" name="lineEditD7">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
        </property>
       </widget>
      </item>
@@ -1256,51 +1393,125 @@
       </widget>
      </item>
      <item row="8" column="1">
-      <widget class="QLineEdit" name="lineEdit_53">
+      <widget class="QLineEdit" name="lineEditD11">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
        </property>
       </widget>
      </item>
      <item row="8" column="2">
-      <widget class="QLineEdit" name="lineEdit_54">
+      <widget class="QLineEdit" name="lineEditD22">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>4</string>
        </property>
       </widget>
      </item>
      <item row="8" column="3">
-      <widget class="QLineEdit" name="lineEdit_55">
+      <widget class="QLineEdit" name="lineEditD33">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>6</string>
        </property>
       </widget>
      </item>
      <item row="8" column="4">
-      <widget class="QLineEdit" name="lineEdit_56">
+      <widget class="QLineEdit" name="lineEditD44">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
        </property>
       </widget>
      </item>
      <item row="8" column="5">
-      <widget class="QLineEdit" name="lineEdit_92">
+      <widget class="QLineEdit" name="lineEditD55">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>6</string>
        </property>
       </widget>
      </item>
      <item row="8" column="6">
-      <widget class="QLineEdit" name="lineEdit_100">
+      <widget class="QLineEdit" name="lineEditD66">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>4</string>
        </property>
       </widget>
      </item>
      <item row="8" column="7">
-      <widget class="QLineEdit" name="lineEdit_108">
+      <widget class="QLineEdit" name="lineEditD77">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>490</y>
+      <width>561</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QPushButton" name="btnSave">
+       <property name="text">
+        <string>保存配置</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnRead">
+       <property name="text">
+        <string>读取配置</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnWrite">
+       <property name="text">
+        <string>写入</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnBack">
+       <property name="text">
+        <string>返回</string>
        </property>
       </widget>
      </item>

@@ -15,13 +15,18 @@ MainWindow::MainWindow(QWidget *parent) :
     qDebug()<<QStringLiteral("begain");
     timer=new QTimer(this);
     otherwin=new OtherWindow();
+    serial=new QSerialPort();
+
     connect(otherwin,SIGNAL(cmd(QString)),this,SLOT(on_sendSetttingCmd(QString)));
     connect(timer, SIGNAL(timeout()), this, SLOT(on_noStopSend()));
     setSpinBox();
-    openserialPort();
+//    openserialPort();
 
     setReset();
     setGrid();
+
+
+    connectSLOT();
 
 
 }
@@ -39,6 +44,50 @@ void MainWindow::setGrid()
     ui->gridLayout_2->setAlignment(ui->btnD_clear,Qt::AlignTop);
 
 }
+
+
+
+void MainWindow::connectSLOT()
+{
+      connect(ui->btnA_up,SIGNAL(clicked()),this,SLOT(on_sendPulse()));
+      connect(ui->btnA_down,SIGNAL(clicked()),this,SLOT(on_sendPulse()));
+      connect(ui->btnB_left,SIGNAL(clicked()),this,SLOT(on_sendPulse()));
+      connect(ui->btnB_right,SIGNAL(clicked()),this,SLOT(on_sendPulse()));
+      connect(ui->btnC_up,SIGNAL(clicked()),this,SLOT(on_sendPulse()));
+      connect(ui->btnC_down,SIGNAL(clicked()),this,SLOT(on_sendPulse()));
+      connect(ui->btnD_left,SIGNAL(clicked()),this,SLOT(on_sendPulse()));
+      connect(ui->btnD_right,SIGNAL(clicked()),this,SLOT(on_sendPulse()));
+
+
+      //微速脉冲
+      connect(ui->btnA_up_slim,SIGNAL(pressed()),this,SLOT(btnSlim_pressed()));
+      connect(ui->btnA_up_slim,SIGNAL(released()),this,SLOT(btnSlim_released()));
+
+      connect(ui->btnA_down_slim,SIGNAL(pressed()),this,SLOT(btnSlim_pressed()));
+      connect(ui->btnA_down_slim,SIGNAL(released()),this,SLOT(btnSlim_released()));
+
+      connect(ui->btnB_left_slim,SIGNAL(pressed()),this,SLOT(btnSlim_pressed()));
+      connect(ui->btnB_left_slim,SIGNAL(released()),this,SLOT(btnSlim_released()));
+
+      connect(ui->btnB_right_slim,SIGNAL(pressed()),this,SLOT(btnSlim_pressed()));
+      connect(ui->btnB_right_slim,SIGNAL(released()),this,SLOT(btnSlim_released()));
+
+      connect(ui->btnC_up_slim,SIGNAL(pressed()),this,SLOT(btnSlim_pressed()));
+      connect(ui->btnC_up_slim,SIGNAL(released()),this,SLOT(btnSlim_released()));
+
+      connect(ui->btnC_down_slim,SIGNAL(pressed()),this,SLOT(btnSlim_pressed()));
+      connect(ui->btnC_down_slim,SIGNAL(released()),this,SLOT(btnSlim_released()));
+
+      connect(ui->btnD_left_slim,SIGNAL(pressed()),this,SLOT(btnSlim_pressed()));
+      connect(ui->btnD_left_slim,SIGNAL(released()),this,SLOT(btnSlim_released()));
+
+      connect(ui->btnD_right_slim,SIGNAL(pressed()),this,SLOT(btnSlim_pressed()));
+      connect(ui->btnD_right_slim,SIGNAL(released()),this,SLOT(btnSlim_released()));
+
+
+}
+
+
 void MainWindow::setSpinBox()
 {
     int numCom=0;
@@ -50,7 +99,7 @@ void MainWindow::setSpinBox()
             if(serial.open(QIODevice::ReadWrite))	//用ReadWrite可读写的方式打开串口
             {
             numCom++;
-            serial.close();	//然后关闭串口，为什么要关闭啊。。。。。因为这段代码打开串口只是为了查找串口可以用不可用而已，而且还要打开下一个串口查看可用不可用呢!
+            serial.close();	//只为了查找串口可以用不可用
             }
 
         }
@@ -107,21 +156,36 @@ void MainWindow::on_positionReset()
 }
 
 
+void MainWindow::on_btn_switch_clicked()
+{
+    if(ui->btn_switch->isChecked())
+    {
+        openserialPort();
+        ui->spinBox->setEnabled(false);
+    }
+
+    else{
+       closeserialPort();
+       ui->spinBox->setEnabled(true);
+    }
+
+}
 
 void MainWindow::openserialPort()
 {
-    serial=new QSerialPort();
 
     serial->setPortName(ui->spinBox->text());
     if(this->serial->open(QIODevice::ReadWrite) == true){
                ui->textEdit->clear();
                ui->textEdit->append("Open Success");
-               ui->pushButton->setText(QStringLiteral("关闭"));
+               ui->btn_switch->setChecked(true);
        }else {
            qDebug()<<"Open Fail";
+           ui->textEdit->clear();
+           ui->textEdit->append("Open Fail");
        }//判断串口是否打开
 
-    serial->setBaudRate(38400);//设置波特率
+    serial->setBaudRate(115200);//设置波特率
 
     serial->setDataBits(QSerialPort::Data8);//设置数据位
 
@@ -138,7 +202,7 @@ void MainWindow::closeserialPort()
         serial->close();
     ui->textEdit->clear();
     ui->textEdit->append("Close Success");
-    ui->pushButton->setText(QStringLiteral("开启"));
+
 }
 
 
@@ -159,21 +223,7 @@ void MainWindow::on_pushButton_test_clicked()
     serial->write(QByteArray::fromHex(msg2.toLatin1()));  //写入16进制的字节流
 }
 
-void MainWindow::on_noStopSend()
-{
-    qDebug()<<QStringLiteral("发送脉冲");
-}
 
-
-void MainWindow::on_btnA_up_slim_pressed()
-{
-      timer->start(100);
-}
-
-void MainWindow::on_btnA_up_slim_released()
-{
-     timer->stop();
-}
 
 void MainWindow::on_pushButton_4_clicked() //打开参数设置页面
 {
@@ -186,7 +236,180 @@ void MainWindow::closeEvent(QCloseEvent *e)
     otherwin->close();
 }
 
-void MainWindow::on_sendSetttingCmd(QString cmd)
+void MainWindow::on_sendSetttingCmd(QString cmd) //发送设置页面的参数到串口
 {
-    serial->write(QByteArray::fromHex(cmd.toLatin1()));  //写入16进制的字节流
+    if (!serial->isOpen())
+         QMessageBox::information(this,"error message",QStringLiteral("请连接串口"));
+    else
+
+       serial->write(QByteArray::fromHex(cmd.toLatin1()));  //写入16进制的字节流
+}
+
+
+void MainWindow::on_noStopSend()
+{
+      serial->write(byte);  //写入16进制的字节流
+//    qDebug()<<"ok";
+}
+void MainWindow::btnSlim_pressed()  //发送微型脉冲的槽
+{
+    QPushButton  *btn=qobject_cast<QPushButton*>(sender());
+
+
+   //发送微速脉冲
+    if(btn->objectName()=="btnA_up_slim")
+    {
+
+        QString str=tenToHex(ui->lineEdit_slim_pulse->text());
+        QString cmd=QString("EE 4D 01 04 %1 00 00 FF FC FF FF").arg(str);
+        byte=QByteArray::fromHex(cmd.toLatin1());  //写入16进制的字节流
+    }
+    else if (btn->objectName()=="btnA_down_slim") {
+        QString str=tenToHex(ui->lineEdit_slim_pulse->text());
+        QString cmd=QString("EE 4D 02 04 %1 00 00 FF FC FF FF").arg(str);
+        byte=QByteArray::fromHex(cmd.toLatin1());  //写入16进制的字节流
+    }
+    else if (btn->objectName()=="btnB_right_slim") {
+        QString str=tenToHex(ui->lineEdit_slim_pulse->text());
+        QString cmd=QString("EE 4D 03 04 %1 00 00 FF FC FF FF").arg(str);
+        byte=QByteArray::fromHex(cmd.toLatin1());  //写入16进制的字节流
+    }
+    else if (btn->objectName()=="btnB_left_slim") {
+        QString str=tenToHex(ui->lineEdit_slim_pulse->text());
+        QString cmd=QString("EE 4D 04 04 %1 00 00 FF FC FF FF").arg(str);
+        byte=QByteArray::fromHex(cmd.toLatin1());  //写入16进制的字节流
+    }
+    else if (btn->objectName()=="btnC_up_slim") {
+        QString str=tenToHex(ui->lineEdit_slim_pulse->text());
+        QString cmd=QString("EE 4D 05 04 %1 00 00 FF FC FF FF").arg(str);
+        byte=QByteArray::fromHex(cmd.toLatin1());  //写入16进制的字节流
+    }
+    else if (btn->objectName()=="btnC_down_slim") {
+        QString str=tenToHex(ui->lineEdit_slim_pulse->text());
+        QString cmd=QString("EE 4D 06 04 %1 00 00 FF FC FF FF").arg(str);
+        byte=QByteArray::fromHex(cmd.toLatin1());  //写入16进制的字节流
+    }
+    else if (btn->objectName()=="btnD_right_slim") {
+        QString str=tenToHex(ui->lineEdit_slim_pulse->text());
+        QString cmd=QString("EE 4D 07 04 %1 00 00 FF FC FF FF").arg(str);
+        byte=QByteArray::fromHex(cmd.toLatin1());  //写入16进制的字节流
+    }
+    else if (btn->objectName()=="btnD_left_slim") {
+        QString str=tenToHex(ui->lineEdit_slim_pulse->text());
+        QString cmd=QString("EE 4D 08 04 %1 00 00 FF FC FF FF").arg(str);
+        byte=QByteArray::fromHex(cmd.toLatin1());  //写入16进制的字节流
+    }
+    timer->start(100);
+}
+
+void MainWindow::btnSlim_released()
+{
+    timer->stop();
+}
+
+void MainWindow::on_sendPulse() //发送脉冲的槽
+{
+    QPushButton  *btn=qobject_cast<QPushButton*>(sender());
+
+    if(btn->objectName()=="btnA_up")
+    {
+
+        QString str=tenToHex(ui->lineEditA_pulse->text());
+        QString cmd=QString("EE 4D 01 04 %1 00 00 FF FC FF FF").arg(str);
+        sendCmd(QByteArray::fromHex(cmd.toLatin1()));   //写入16进制的字节流
+    }
+    else if (btn->objectName()=="btnA_down") {
+        QString str=tenToHex(ui->lineEditA_pulse->text());
+        QString cmd=QString("EE 4D 02 04 %1 00 00 FF FC FF FF").arg(str);
+        sendCmd(QByteArray::fromHex(cmd.toLatin1()));  //写入16进制的字节流
+    }
+    else if (btn->objectName()=="btnB_right") {
+        QString str=tenToHex(ui->lineEditA_pulse->text());
+        QString cmd=QString("EE 4D 03 04 %1 00 00 FF FC FF FF").arg(str);
+        sendCmd(QByteArray::fromHex(cmd.toLatin1()));   //写入16进制的字节流
+    }
+    else if (btn->objectName()=="btnB_left") {
+        QString str=tenToHex(ui->lineEditA_pulse->text());
+        QString cmd=QString("EE 4D 04 04 %1 00 00 FF FC FF FF").arg(str);
+        sendCmd(QByteArray::fromHex(cmd.toLatin1()));   //写入16进制的字节流
+    }
+    else if (btn->objectName()=="btnC_up") {
+        QString str=tenToHex(ui->lineEditA_pulse->text());
+        QString cmd=QString("EE 4D 05 04 %1 00 00 FF FC FF FF").arg(str);
+        sendCmd(QByteArray::fromHex(cmd.toLatin1()));  //写入16进制的字节流
+    }
+    else if (btn->objectName()=="btnC_down") {
+        QString str=tenToHex(ui->lineEditA_pulse->text());
+        QString cmd=QString("EE 4D 06 04 %1 00 00 FF FC FF FF").arg(str);
+        sendCmd(QByteArray::fromHex(cmd.toLatin1()));   //写入16进制的字节流
+    }
+    else if (btn->objectName()=="btnD_right") {
+        QString str=tenToHex(ui->lineEditA_pulse->text());
+        QString cmd=QString("EE 4D 07 04 %1 00 00 FF FC FF FF").arg(str);
+        sendCmd(QByteArray::fromHex(cmd.toLatin1())); //写入16进制的字节流
+    }
+    else if (btn->objectName()=="btnD_left") {
+        QString str=tenToHex(ui->lineEditA_pulse->text());
+        QString cmd=QString("EE 4D 08 04 %1 00 00 FF FC FF FF").arg(str);
+        sendCmd(QByteArray::fromHex(cmd.toLatin1()));  //写入16进制的字节流
+    }
+
+   //发送微速脉冲
+    else if(btn->objectName()=="btnA_up_slim")
+    {
+
+        QString str=tenToHex(ui->lineEdit_slim_pulse->text());
+        QString cmd=QString("EE 4D 01 04 %1 00 00 FF FC FF FF").arg(str);
+        sendCmd(QByteArray::fromHex(cmd.toLatin1()));  //写入16进制的字节流
+    }
+    else if (btn->objectName()=="btnA_down_slim") {
+        QString str=tenToHex(ui->lineEdit_slim_pulse->text());
+        QString cmd=QString("EE 4D 02 04 %1 00 00 FF FC FF FF").arg(str);
+        sendCmd(QByteArray::fromHex(cmd.toLatin1())); //写入16进制的字节流
+    }
+    else if (btn->objectName()=="btnB_right_slim") {
+        QString str=tenToHex(ui->lineEdit_slim_pulse->text());
+        QString cmd=QString("EE 4D 03 04 %1 00 00 FF FC FF FF").arg(str);
+        sendCmd(QByteArray::fromHex(cmd.toLatin1()));   //写入16进制的字节流
+    }
+    else if (btn->objectName()=="btnB_left_slim") {
+        QString str=tenToHex(ui->lineEdit_slim_pulse->text());
+        QString cmd=QString("EE 4D 04 04 %1 00 00 FF FC FF FF").arg(str);
+        sendCmd(QByteArray::fromHex(cmd.toLatin1()));  //写入16进制的字节流
+    }
+    else if (btn->objectName()=="btnC_up_slim") {
+        QString str=tenToHex(ui->lineEdit_slim_pulse->text());
+        QString cmd=QString("EE 4D 05 04 %1 00 00 FF FC FF FF").arg(str);
+        sendCmd(QByteArray::fromHex(cmd.toLatin1()));  //写入16进制的字节流
+    }
+    else if (btn->objectName()=="btnC_down_slim") {
+        QString str=tenToHex(ui->lineEdit_slim_pulse->text());
+        QString cmd=QString("EE 4D 06 04 %1 00 00 FF FC FF FF").arg(str);
+        sendCmd(QByteArray::fromHex(cmd.toLatin1()));  //写入16进制的字节流
+    }
+    else if (btn->objectName()=="btnD_right_slim") {
+        QString str=tenToHex(ui->lineEdit_slim_pulse->text());
+        QString cmd=QString("EE 4D 07 04 %1 00 00 FF FC FF FF").arg(str);
+        sendCmd(QByteArray::fromHex(cmd.toLatin1()));   //写入16进制的字节流
+    }
+    else if (btn->objectName()=="btnD_left_slim") {
+        QString str=tenToHex(ui->lineEdit_slim_pulse->text());
+        QString cmd=QString("EE 4D 08 04 %1 00 00 FF FC FF FF").arg(str);
+        sendCmd(QByteArray::fromHex(cmd.toLatin1()));  //写入16进制的字节流
+    }
+}
+QString MainWindow::tenToHex(QString str)
+{
+    int dec = str.toInt();
+
+    QString hex = QString("%1").arg(dec,4, 16, QChar('0'));  // 保留2位，不足补零
+
+    return hex.toUpper().right(2)+hex.toUpper().left(2);
+}
+void MainWindow::sendCmd(QByteArray cmd)
+{
+    if (!serial->isOpen())
+         QMessageBox::information(this,"error message",QStringLiteral("请连接串口"));
+    else
+        serial->write(cmd);
 }

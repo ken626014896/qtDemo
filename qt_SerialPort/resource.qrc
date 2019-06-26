@@ -20,5 +20,7 @@
         <file>resource/updown_normal.png</file>
         <file>resource/set-active.png</file>
         <file>resource/set-btn.png</file>
+        <file>resource/switch_off.png</file>
+        <file>resource/switch_on.png</file>
     </qresource>
 </RCC>
